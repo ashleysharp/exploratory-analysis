@@ -99,3 +99,42 @@ plot.new()
 # overridden when specified as arguments to specific plotting functions. These include las (the
 # orientation of the axis labels on the plot), bg (background color), mar (margin size), oma
 # (outer margin size), mfrow and mfcol (number of plots per row, column).
+
+
+with(faithful, plot(eruptions, waiting))
+title(main = "Old Faithful Geyser data")
+dev.cur()
+
+pdf("myplot.pdf")
+with(faithful, plot(eruptions, waiting))
+title(main = "Old Faithful Geyser data")
+dev.off()
+
+with(faithful, plot(eruptions, waiting))
+title(main = "Old Faithful Geyser data")
+dev.copy(png, "filename.png")
+dev.off()
+
+
+############## Week 2
+
+##Lattice
+# Lattice functions generally take a formula for their first argument, usually of the
+# form y ~ x.
+
+##Colors
+colors() #lists the names of 657 predefined colors you can use in any plotting function.
+# grDevices package
+colorRamp()
+colorRampPalette()
+
+pal <- colorRamp(c("red","blue"))
+pal(0)
+
+rgb(red, green, blue, alpha = 0.3) #transparency
+plot(x,y, pch = 19, col = rgb(0,.5,.5, 0.3))
+
+RColorBrewer
+
+image(volcano, col = pal(20))
+image(volcano, col = p1(20))
